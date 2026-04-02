@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Math&display=swap');
+
+:root {
+  --color-base: #f9fafb;
+  --color-primary: #333333;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-primary);
+}
+
+.math-font {
+  font-family: "Libertinus Math", serif;
+}
+
+.katex {
+  font-size: 1em !important;
+}
+
+.katex-display {
+  text-align: left !important;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+/* 🔥 Text Selection Style */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-base);
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-base);
+}
