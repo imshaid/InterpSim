@@ -110,7 +110,7 @@ function App() {
     bg-[var(--color-base)]
     transform transition-transform duration-300
     ${isDrawerOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-    flex flex-col overflow-y-auto lg:overflow-visible
+    flex flex-col overflow-y-auto scrollbar-thin
     border-b lg:border-b-0 lg:border-r border-[var(--color-primary)]/20
   `}
         >
