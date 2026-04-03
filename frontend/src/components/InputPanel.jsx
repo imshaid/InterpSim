@@ -149,14 +149,14 @@ export default function InputPanel({ onSolve }) {
         <div className="flex gap-2">
           <button
             onClick={handleRandom}
-            className="text-xs px-3 py-1.5 border border-[var(--color-primary)]/20 rounded-lg hover:bg-[var(--color-primary)]/5 transition w-full sm:w-auto"
+            className="text-xs px-3 py-1.5 border border-[var(--color-primary)]/20 rounded-lg hover:bg-[var(--color-primary)]/5 transition w-full sm:w-auto cursor-pointer"
           >
             Random
           </button>
 
           <button
             onClick={handleClear}
-            className="text-xs px-3 py-1.5 border border-[var(--color-primary)]/20 rounded-lg hover:bg-[var(--color-primary)]/5 transition w-full sm:w-auto"
+            className="text-xs px-3 py-1.5 border border-[var(--color-primary)]/20 rounded-lg hover:bg-[var(--color-primary)]/5 transition w-full sm:w-auto cursor-pointer"
           >
             Clear
           </button>
@@ -211,7 +211,7 @@ export default function InputPanel({ onSolve }) {
             <button
               onClick={handleSubmit}
               className="w-full sm:w-1/2 px-3 py-2 text-sm sm:text-base rounded-lg bg-[var(--color-primary)] text-[var(--color-base)] 
-                         hover:opacity-90 transition"
+                         hover:opacity-90 transition cursor-pointer"
             >
               Calculate
             </button>

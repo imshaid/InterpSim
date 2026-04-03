@@ -66,7 +66,7 @@ export default function ProblemTabs({
                           <div className="flex justify-end gap-2 pt-1">
                             <button
                               onClick={() => toast.dismiss(t.id)}
-                              className="px-3 py-1 text-xs rounded-md border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/5 transition"
+                              className="px-3 py-1 text-xs rounded-md border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/5 transition cursor-pointer"
                             >
                               Cancel
                             </button>
@@ -84,7 +84,7 @@ export default function ProblemTabs({
                                   },
                                 });
                               }}
-                              className="px-3 py-1 text-xs rounded-md bg-[var(--color-primary)] text-[var(--color-base)] hover:opacity-90 transition"
+                              className="px-3 py-1 text-xs rounded-md bg-[var(--color-primary)] text-[var(--color-base)] hover:opacity-90 transition cursor-pointer"
                             >
                               Delete
                             </button>
@@ -110,7 +110,10 @@ export default function ProblemTabs({
                   hover:bg-[var(--color-primary)]/10 
                   transition-transform duration-200"
                 >
-                  <Trash2 size={12} className="sm:w-[13px] sm:h-[13px]" />
+                  <Trash2
+                    size={12}
+                    className="sm:w-[13px] sm:h-[13px] cursor-pointer"
+                  />
                 </button>
               </div>
 
