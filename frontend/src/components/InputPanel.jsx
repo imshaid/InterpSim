@@ -210,7 +210,7 @@ export default function InputPanel({ onSolve }) {
 
             <button
               onClick={handleSubmit}
-              className="w-full sm:w-1/2 px-3 py-2 mt-4 text-sm sm:text-base rounded-lg bg-[var(--color-primary)] text-[var(--color-base)] 
+              className="w-full sm:w-1/2 px-3 py-2 text-sm sm:text-base rounded-lg bg-[var(--color-primary)] text-[var(--color-base)] 
                          hover:opacity-90 transition"
             >
               Calculate
