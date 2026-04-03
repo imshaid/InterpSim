@@ -6,21 +6,30 @@ const API = axios.create({
 });
 
 export const solveInterpolation = async (data) => {
-  try {
-    const promise = API.post("/solve", data);
+  // Show infinite loading toast
+  const toastId = toast.loading(
+    "Processing... (server may take a few seconds)",
+  );
 
-    const response = await toast.promise(promise, {
-      loading: {
-        message: "Processing... (server may take a few seconds)",
-        duration: Infinity,
-      },
-      success: "Interpolation complete",
-      error: (err) => err?.response?.data?.detail || "Failed to solve",
+  try {
+    const response = await API.post("/solve", data);
+
+    // Replace loading with success
+    toast.success("Interpolation complete", {
+      id: toastId,
+      duration: 3000, // optional (override global)
     });
 
     return response.data;
   } catch (error) {
     console.error("API Error:", error);
+
+    // Replace loading with error
+    toast.error(error?.response?.data?.detail || "Failed to solve", {
+      id: toastId,
+      duration: 4000,
+    });
+
     throw error;
   }
 };
