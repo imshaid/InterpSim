@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
@@ -8,6 +8,10 @@ import ProblemTabs from "./components/ProblemTabs";
 import { solveInterpolation } from "./services/api";
 
 function App() {
+  useEffect(() => {
+    fetch(import.meta.env.VITE_API_BASE_URL);
+  }, []);
+
   const [problems, setProblems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -88,9 +92,9 @@ function App() {
         }}
       />
 
-      {/* 🔥 MAIN */}
+      {/* MAIN */}
       <div className="h-screen flex flex-col lg:flex-row bg-[var(--color-base)] text-[var(--color-primary)] math-font">
-        {/* 🔥 OVERLAY */}
+        {/* OVERLAY */}
         {isDrawerOpen && (
           <div
             className="fixed inset-0 bg-black/30 z-40 lg:hidden"
@@ -213,7 +217,7 @@ function App() {
 
         {/* RIGHT PANEL */}
         <div className="w-full lg:w-7/10 flex flex-col">
-          {/* 🔥 MOBILE HEADER */}
+          {/* MOBILE HEADER */}
           <div className="lg:hidden flex items-center justify-between px-4 py-3 border-b border-[var(--color-primary)]/20">
             <button onClick={() => setIsDrawerOpen(true)}>☰</button>
             <h1 className="text-xl sm:text-2xl font-semibold tracking-tight opacity-90">
@@ -263,7 +267,7 @@ function App() {
 
           {problems.length > 0 && (
             <>
-              {/* 🔥 STICKY TABS */}
+              {/* STICKY TABS */}
               <div className="sticky top-0 z-30 bg-[var(--color-base)] px-4 sm:px-6 md:px-8 pt-4 pb-2 border-b border-[var(--color-primary)]/20 overflow-x-auto">
                 <ProblemTabs
                   problems={problems}

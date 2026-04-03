@@ -1,6 +1,6 @@
 import math
 
-# 🔥 FORMATTERS
+# FORMATTERS
 def fmt2(val):
     return f"{val:.2f}"
 

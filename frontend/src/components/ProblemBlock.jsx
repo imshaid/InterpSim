@@ -35,7 +35,7 @@ export default function ProblemBlock({ data, index }) {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* 🔥 HEADER */}
+      {/* HEADER */}
       <div className="space-y-2 sm:space-y-3">
         <h2 className="text-lg sm:text-xl font-semibold">
           Problem {index + 1}

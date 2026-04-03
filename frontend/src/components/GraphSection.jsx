@@ -97,7 +97,7 @@ export default function GraphSection({ graph }) {
 
     const plot = plotRef.current;
 
-    // 🔥 HOVER CROSSHAIR
+    // HOVER CROSSHAIR
     plot.on("plotly_hover", (event) => {
       const x = event.points[0].x;
       const y = event.points[0].y;
@@ -132,12 +132,12 @@ export default function GraphSection({ graph }) {
       });
     });
 
-    // 🔥 REMOVE CROSSHAIR ON LEAVE
+    // REMOVE CROSSHAIR ON LEAVE
     plot.on("plotly_unhover", () => {
       Plotly.relayout(plot, { shapes: [] });
     });
 
-    // 🔥 CLICK → INTERPOLATION VALUE
+    // CLICK → INTERPOLATION VALUE
     plot.on("plotly_click", (event) => {
       const clickedX = event.points[0].x;
 

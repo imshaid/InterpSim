@@ -36,7 +36,7 @@ export default function ProblemTabs({
                     : "border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/5"
                 }`}
             >
-              {/* 🔥 DELETE BUTTON */}
+              {/* DELETE BUTTON */}
               <div
                 className={`absolute left-0 translate-x-[-35%] -top-3 transition-all duration-200
                 ${
@@ -127,7 +127,7 @@ export default function ProblemTabs({
         </div>
       </div>
 
-      {/* 🔥 FLOATING PREVIEW (disable on small screens automatically by hover absence) */}
+      {/* FLOATING PREVIEW (disable on small screens automatically by hover absence) */}
       {safeHoverIndex !== null && !isOnDelete && (
         <div
           style={{

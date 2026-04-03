@@ -113,7 +113,7 @@ def solve_interpolation(data):
             sign = "-" if coef < 0 else "+"
             coef_abs = abs(coef)
     
-            # 🔥 FIX HERE
+            # FIX HERE
             if abs(coef_abs - 1) < 1e-10 and power != 0:
                 coef_str = ""
             else:

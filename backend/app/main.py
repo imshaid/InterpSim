@@ -12,4 +12,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 app.include_router(interpolate.router)
