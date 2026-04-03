@@ -10,7 +10,10 @@ export const solveInterpolation = async (data) => {
     const promise = API.post("/solve", data);
 
     const response = await toast.promise(promise, {
-      loading: "Processing... (server may take a few seconds)",
+      loading: {
+        message: "Processing... (server may take a few seconds)",
+        duration: Infinity,
+      },
       success: "Interpolation complete",
       error: (err) => err?.response?.data?.detail || "Failed to solve",
     });
