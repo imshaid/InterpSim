@@ -187,7 +187,7 @@ function App() {
                   email: "arefin241-15-377@diu.edu.bd",
                 },
                 {
-                  name: "Atkia Galiba Rifath",
+                  name: "Atkia Galiba Rifah",
                   email: "galiba241-15-076@diu.edu.bd",
                 },
                 {
