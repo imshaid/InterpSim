@@ -6,6 +6,8 @@ import InputPanel from "./components/InputPanel";
 import ProblemBlock from "./components/ProblemBlock";
 import ProblemTabs from "./components/ProblemTabs";
 import { solveInterpolation } from "./services/api";
+import { FaGithub, FaTelegramPlane } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
 
 function App() {
   useEffect(() => {
@@ -101,7 +103,6 @@ function App() {
             onClick={() => setIsDrawerOpen(false)}
           />
         )}
-
         {/* LEFT PANEL (DRAWER ON MOBILE) */}
         <div
           className={`
@@ -110,12 +111,12 @@ function App() {
     bg-[var(--color-base)]
     transform transition-transform duration-300
     ${isDrawerOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-    flex flex-col overflow-y-auto scrollbar-thin
+    flex flex-col
     border-b lg:border-b-0 lg:border-r border-[var(--color-primary)]/20
   `}
         >
-          {/* TOP: NAME */}
-          <div className="px-4 sm:px-6 py-4 border-b border-[var(--color-primary)]/20 flex justify-between items-center">
+          {/* 🔹 TOP: NAME (STATIC) */}
+          <div className="px-4 sm:px-6 py-4 border-b border-[var(--color-primary)]/20 flex justify-between items-center shrink-0">
             <a
               href="https://interpsim.vercel.app"
               className="text-xl sm:text-2xl font-semibold tracking-tight hover:opacity-80 transition"
@@ -131,86 +132,118 @@ function App() {
             </button>
           </div>
 
-          {/* INPUT */}
-          <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 border-b border-[var(--color-primary)]/20">
-            <div className="w-full max-w-md">
-              <InputPanel onSolve={handleSolve} />
-            </div>
-          </div>
-
-          {/* INFO */}
-          <div className="px-4 sm:px-6 md:px-8 py-4 border-b border-[var(--color-primary)]/20">
-            <p className="text-sm font-semibold mb-3">
-              Interpolation (Equal Interval)
-            </p>
-
-            <p className="text-xs sm:text-sm opacity-70 leading-relaxed">
-              Interpolation estimates unknown values between known data points.
-              This system focuses on equal interval interpolation, where the
-              spacing between consecutive x-values is uniform.
-            </p>
-
-            <div className="mt-4 text-xs opacity-60">
-              <p className="mb-1">Example:</p>
-              <p>x: 1, 2, 3, 4</p>
-              <p>y: 2, 4, 6, 8</p>
+          {/* 🔹 MIDDLE (SCROLLABLE) */}
+          <div className="flex-1 overflow-y-auto scrollbar-thin">
+            {/* INPUT */}
+            <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 border-b border-[var(--color-primary)]/20 py-6">
+              <div className="w-full max-w-md">
+                <InputPanel onSolve={handleSolve} />
+              </div>
             </div>
 
-            <div className="my-4 h-px bg-[var(--color-primary)]/20" />
+            {/* INFO */}
+            <div className="px-4 sm:px-6 md:px-8 py-4 border-b border-[var(--color-primary)]/20">
+              <p className="text-sm font-semibold mb-3">
+                Interpolation (Equal Interval)
+              </p>
 
-            <div className="space-y-2 text-xs opacity-70">
-              <p>• Enter equally spaced X and Y values</p>
-              <p>• Provide a target value</p>
-              <p>• System selects method automatically</p>
-              <p>• Results + graph generated instantly</p>
+              <p className="text-xs sm:text-sm opacity-70 leading-relaxed">
+                Interpolation estimates unknown values between known data
+                points. This system focuses on equal interval interpolation,
+                where the spacing between consecutive x-values is uniform.
+              </p>
+
+              <div className="mt-4 text-xs opacity-60">
+                <p className="mb-1">Example:</p>
+                <p>x: 1, 2, 3, 4</p>
+                <p>y: 2, 4, 6, 8</p>
+              </div>
+
+              <div className="my-4 h-px bg-[var(--color-primary)]/20" />
+
+              <div className="space-y-2 text-xs opacity-70">
+                <p>• Enter equally spaced X and Y values</p>
+                <p>• Provide a target value</p>
+                <p>• System selects method automatically</p>
+                <p>• Results + graph generated instantly</p>
+              </div>
             </div>
-          </div>
 
-          {/* TEAM */}
-          <div className="p-4">
-            <p className="text-sm font-semibold mb-4 text-center">
-              Team Adrenaline
-            </p>
+            {/* TEAM */}
+            <div className="p-4">
+              <p className="text-sm font-semibold mb-4 text-center">
+                Team Adrenaline
+              </p>
 
-            <div className="space-y-2 text-[12px] sm:text-[12.5px]">
-              {[
-                {
-                  name: "Md. Shaid Hasan",
-                  email: "shaid241-15-360@diu.edu.bd",
-                },
-                {
-                  name: "Md. Fazle Rabbi",
-                  email: "fazle241-15-364@diu.edu.bd",
-                },
-                {
-                  name: "Md. Afsahul Arefin Talukder",
-                  email: "arefin241-15-377@diu.edu.bd",
-                },
-                {
-                  name: "Atkia Galiba Rifah",
-                  email: "galiba241-15-076@diu.edu.bd",
-                },
-                {
-                  name: "Sormili Akter Nowshin",
-                  email: "akter241-15-404@diu.edu.bd",
-                },
-              ].map((m, i) => (
-                <div
-                  key={i}
-                  className="flex justify-between items-start px-2 sm:px-4 gap-2"
-                >
-                  <p className="font-medium text-[10px] sm:text-[13px]">
-                    {m.name}
-                  </p>
-
-                  <a
-                    href={`mailto:${m.email}`}
-                    className="text-[10px] sm:text-[12.5px] opacity-70 hover:opacity-100 hover:underline transition break-all text-right"
+              <div className="space-y-2 text-[12px] sm:text-[12.5px]">
+                {[
+                  {
+                    name: "Md. Shaid Hasan",
+                    email: "shaid241-15-360@diu.edu.bd",
+                  },
+                  {
+                    name: "Md. Fazle Rabbi",
+                    email: "fazle241-15-364@diu.edu.bd",
+                  },
+                  {
+                    name: "Md. Afsahul Arefin Talukder",
+                    email: "arefin241-15-377@diu.edu.bd",
+                  },
+                  {
+                    name: "Atkia Galiba Rifah",
+                    email: "galiba241-15-076@diu.edu.bd",
+                  },
+                  {
+                    name: "Sormili Akter Nowshin",
+                    email: "akter241-15-404@diu.edu.bd",
+                  },
+                ].map((m, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between items-start px-2 sm:px-4 gap-2"
                   >
-                    {m.email}
-                  </a>
-                </div>
-              ))}
+                    <p className="font-medium text-[10px] sm:text-[13px]">
+                      {m.name}
+                    </p>
+
+                    <a
+                      href={`mailto:${m.email}`}
+                      className="text-[10px] sm:text-[12.5px] opacity-70 hover:opacity-100 hover:underline transition break-all text-right"
+                    >
+                      {m.email}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 🔹 BOTTOM: SOCIAL (STATIC) */}
+          <div className="px-6 py-2 border-t border-[var(--color-primary)]/20 shrink-0">
+            <div className="flex justify-evenly items-center">
+              <a
+                href="https://github.com/imshaid"
+                target="_blank"
+                className="flex items-center justify-center hover:opacity-70 transition"
+              >
+                <FaGithub size={20} />
+              </a>
+
+              <a
+                href="https://imshaid.medium.com"
+                target="_blank"
+                className="flex items-center justify-center hover:opacity-70 transition"
+              >
+                <FaMedium size={20} />
+              </a>
+
+              <a
+                href="https://t.me/imsurjo"
+                target="_blank"
+                className="flex items-center justify-center hover:opacity-70 transition"
+              >
+                <FaTelegramPlane size={20} />
+              </a>
             </div>
           </div>
         </div>
