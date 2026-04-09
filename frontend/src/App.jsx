@@ -111,7 +111,7 @@ function App() {
     bg-[var(--color-base)]
     transform transition-transform duration-300
     ${isDrawerOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-    flex flex-col
+    flex flex-col overflow-y-auto
     border-b lg:border-b-0 lg:border-r border-[var(--color-primary)]/20
   `}
         >
@@ -132,15 +132,15 @@ function App() {
             </button>
           </div>
 
-          {/* 🔹 MIDDLE (SCROLLABLE) */}
-          <div className="flex-1 overflow-y-auto scrollbar-thin">
-            {/* INPUT */}
-            <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 border-b border-[var(--color-primary)]/20 py-6">
-              <div className="w-full max-w-md">
-                <InputPanel onSolve={handleSolve} />
-              </div>
+          {/* 🔹 MIDDLE (FLEXIBLE INPUT) */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="w-full max-w-md px-4 sm:px-6 md:px-8 py-6">
+              <InputPanel onSolve={handleSolve} />
             </div>
+          </div>
 
+          {/* 🔹 BOTTOM (ALL STATIC) */}
+          <div className="shrink-0 border-t border-[var(--color-primary)]/20">
             {/* INFO */}
             <div className="px-4 sm:px-6 md:px-8 py-4 border-b border-[var(--color-primary)]/20">
               <p className="text-sm font-semibold mb-3">
@@ -170,7 +170,7 @@ function App() {
             </div>
 
             {/* TEAM */}
-            <div className="p-4">
+            <div className="p-4 border-b border-[var(--color-primary)]/20">
               <p className="text-sm font-semibold mb-4 text-center">
                 Team Adrenaline
               </p>
@@ -216,38 +216,37 @@ function App() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* 🔹 BOTTOM: SOCIAL (STATIC) */}
-          <div className="px-6 py-2 border-t border-[var(--color-primary)]/20 shrink-0">
-            <div className="flex justify-evenly items-center">
-              <a
-                href="https://github.com/imshaid"
-                target="_blank"
-                className="flex items-center justify-center hover:opacity-70 transition"
-              >
-                <FaGithub size={20} />
-              </a>
+            {/* SOCIAL */}
+            <div className="px-6 py-2">
+              <div className="flex justify-evenly items-center">
+                <a
+                  href="https://github.com/imshaid"
+                  target="_blank"
+                  className="flex items-center justify-center hover:opacity-70 transition"
+                >
+                  <FaGithub size={20} />
+                </a>
 
-              <a
-                href="https://imshaid.medium.com"
-                target="_blank"
-                className="flex items-center justify-center hover:opacity-70 transition"
-              >
-                <FaMedium size={20} />
-              </a>
+                <a
+                  href="https://imshaid.medium.com"
+                  target="_blank"
+                  className="flex items-center justify-center hover:opacity-70 transition"
+                >
+                  <FaMedium size={20} />
+                </a>
 
-              <a
-                href="https://t.me/imsurjo"
-                target="_blank"
-                className="flex items-center justify-center hover:opacity-70 transition"
-              >
-                <FaTelegramPlane size={20} />
-              </a>
+                <a
+                  href="https://t.me/imsurjo"
+                  target="_blank"
+                  className="flex items-center justify-center hover:opacity-70 transition"
+                >
+                  <FaTelegramPlane size={20} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
-
         {/* RIGHT PANEL */}
         <div className="w-full lg:w-7/10 flex flex-col">
           {/* MOBILE HEADER */}
