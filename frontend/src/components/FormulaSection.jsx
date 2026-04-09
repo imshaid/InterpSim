@@ -56,7 +56,7 @@ export default function FormulaSection({ formula }) {
                    overflow-x-auto"
       >
         {/* FIRST LINE */}
-        <div className="flex justify-start items-center gap-4 sm:gap-8 text-sm sm:text-base whitespace-nowrap">
+        <div className="flex justify-center items-center gap-4 sm:gap-8 text-sm sm:text-base whitespace-nowrap">
           {formula.slice(0, 3).map((f, i) => (
             <div key={i} className="flex items-center gap-3 sm:gap-8">
               <span
